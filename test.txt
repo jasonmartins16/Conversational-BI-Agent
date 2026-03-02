@@ -1,0 +1,23 @@
+1. Testing the Core Filtering (The Assignment's Exact Example)
+Prompt: "How is our pipeline looking for the energy sector this quarter?"
+What it tests: This is the exact challenge from the assignment brief. It tests if the LLM correctly extracts "energy" as the sector_filter argument, passes it to your Python function, and returns the filtered revenue and stage breakdowns.
+
+2. Testing Conversational Memory (Follow-up Context)
+Prompt: (Immediately after the energy question) "What about the healthcare sector?"
+What it tests: This verifies the "Support follow-up context" requirement. The LLM must remember you are asking about pipeline health/revenue and apply the new "healthcare" filter to the tool call.
+
+3. Testing Global Aggregation & Pipeline Health
+Prompt: "What is our total pipeline value across all deals right now, and what are the top stages those deals are in?"
+What it tests: This forces the agent to call the get_deals_data tool without any filters, testing your Pandas sum() and value_counts() logic for the entire board.
+
+4. Testing Work Orders & Operational Status
+Prompt: "Can you give me a breakdown of our current work orders? How many do we have, and what are their statuses?"
+What it tests: This verifies that the agent correctly chooses to use the get_work_orders_data tool instead of the Deals tool, fulfilling the requirement to integrate with the Work Orders data.
+
+5. Testing Cross-Board Intelligence (The Ultimate Flex)
+Prompt: "I need an overview of the business. What is our total deal revenue in the pipeline, and how many work orders do we currently have running?"
+What it tests: This is a fantastic test for the "Query across both boards when required" criteria. Watch your UI trace carefully here: the LLM should recognize it needs data from both sources and trigger two separate tool calls before giving you the final answer.
+
+6. Testing Data Resilience & Caveats
+Prompt: "Are there any issues with the data quality I should know about?"
+What it tests: This tests the "Communicate data quality caveats" requirement  and the system prompt instruction we added. The AI should mention that there were missing values, inconsistent formats, or messy strings that it had to normalize
