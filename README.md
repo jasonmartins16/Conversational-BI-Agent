@@ -52,7 +52,5 @@ sequenceDiagram
     Streamlit->>LLM: Pass aggregated summary
     LLM-->>Streamlit: Generate final conversational insight
     Streamlit->>User: "We have 5 energy deals worth $100k..."
-    Streamlit->>User: "We have 5 energy deals worth $100k..."
 ```
-
 
