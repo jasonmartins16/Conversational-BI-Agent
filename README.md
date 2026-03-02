@@ -34,7 +34,6 @@ This system utilizes Server-Side Aggregation. Rather than passing raw, heavy CSV
 
 ### 🔄 System Architecture Flow
 
-```mermaid
 sequenceDiagram
     participant User
     participant Streamlit as Streamlit UI
@@ -53,3 +52,4 @@ sequenceDiagram
     Streamlit->>LLM: Pass aggregated summary
     LLM-->>Streamlit: Generate final conversational insight
     Streamlit->>User: "We have 5 energy deals worth $100k..."
+
