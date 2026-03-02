@@ -34,13 +34,13 @@ This system utilizes Server-Side Aggregation. Rather than passing raw, heavy CSV
 
 ### 🔄 System Architecture Flow
 
+```mermaid
 sequenceDiagram
     participant User
     participant Streamlit as Streamlit UI
     participant LLM as Groq LLM (Agent)
     participant Backend as Python Backend (Pandas)
     participant Monday as Monday.com API
-
     User->>Streamlit: "How is our pipeline for the energy sector?"
     Streamlit->>LLM: Pass query & tool schemas
     LLM-->>Streamlit: Trigger tool `get_deals_data(sector="energy")`
@@ -52,4 +52,7 @@ sequenceDiagram
     Streamlit->>LLM: Pass aggregated summary
     LLM-->>Streamlit: Generate final conversational insight
     Streamlit->>User: "We have 5 energy deals worth $100k..."
+    Streamlit->>User: "We have 5 energy deals worth $100k..."
+```
+
 
